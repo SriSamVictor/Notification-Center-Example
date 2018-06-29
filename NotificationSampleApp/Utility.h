@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Utility : NSObject
+@property(strong, nonatomic)ViewController *viewControllerObject;
+@property(strong, nonatomic)SecondViewController *secondViewControllerObject;
 
++(id)sharedInstance;
+-(id)init;
 @end
