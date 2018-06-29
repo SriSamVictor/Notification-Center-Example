@@ -7,23 +7,40 @@
 //
 
 #import "ViewController.h"
+#import "Utility.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+@synthesize firstViewController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+   
+    [self.navigationController setNavigationBarHidden:YES];
+//    NSString *sampleStr = @"str";
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sampleDisp) name:@"str" object:nil];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    
 }
 
+- (IBAction)firstPageButtonAction:(id)sender {
+    
+    SecondViewController *secondViewController = [[Utility sharedInstance] secondViewControllerObject];
+    [self.navigationController pushViewController:secondViewController animated:YES];
+    NSLog(@"%@",secondViewController);
+    
+}
 
+-(void)sampleDisp{
+    NSLog(@"Srinivasan");
+}
 @end
